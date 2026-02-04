@@ -1,0 +1,90 @@
+:root {
+    --primary: #6366f1;
+    --success: #22c55e;
+    --error: #ef4444;
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f8fafc;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #334155; /* Cor do fundo da barra (vazia) */
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    overflow: hidden; /* Garante que a barra interna respeite os cantos arredondados */
+}
+
+#progress-bar {
+    width: 0%; /* Começa a zero */
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), #818cf8);
+    transition: width 0.4s ease-out; /* Animação suave quando o valor muda */
+}
+
+.quiz-container {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 600px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+h2 { margin-bottom: 1.5rem; font-size: 1.4rem; }
+
+.options-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+button {
+    background: #334155;
+    color: white;
+    border: 2px solid transparent;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+    text-align: left;
+}
+
+button:hover:not(:disabled) {
+    background: #475569;
+    border-color: var(--primary);
+}
+
+button.correct { background: var(--success) !important; border-color: #15803d; }
+button.wrong { background: var(--error) !important; border-color: #b91c1c; }
+
+.hidden { display: none; }
+
+#result { text-align: center; }
+#result button { margin-top: 1rem; text-align: center; width: 100%; background: var(--primary); }
+
+/* Responsividade para tablets/telemóveis */
+@media (max-width: 480px) {
+    .quiz-container { padding: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+}
